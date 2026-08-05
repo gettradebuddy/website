@@ -1,0 +1,145 @@
+/* TradeBuddy Website V1 — final real-app hero screenshots
+   Keep this file after styles.css so these rules override the old concept illustration. */
+
+.hero-screenshots {
+  position: relative;
+  min-height: 610px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.hero-screenshots .device {
+  position: absolute;
+  width: min(300px, 38vw);
+  aspect-ratio: 9 / 19.5;
+  transition: none;
+}
+
+.hero-screenshots .device-main {
+  z-index: 3;
+  width: min(330px, 42vw);
+  transform: translateY(2px);
+}
+
+.hero-screenshots .device-left {
+  z-index: 1;
+  left: 0;
+  transform: translate(-4%, 7%) rotate(-5deg) scale(.88);
+  opacity: .94;
+}
+
+.hero-screenshots .device-right {
+  z-index: 2;
+  right: 0;
+  transform: translate(4%, 8%) rotate(5deg) scale(.88);
+  opacity: .94;
+}
+
+.hero-screenshots .device-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 10px solid #0b1420;
+  border-radius: 44px;
+  background: #ffffff;
+  box-shadow: 0 28px 60px rgba(13, 35, 65, .18);
+}
+
+.hero-screenshots .device-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 34px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
+  pointer-events: none;
+}
+
+.hero-screenshots .device-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 4;
+  width: 34%;
+  height: 23px;
+  transform: translateX(-50%);
+  border-radius: 0 0 16px 16px;
+  background: #0b1420;
+}
+
+.hero-screenshots .device img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  background: #ffffff;
+}
+
+@media (max-width: 1050px) {
+  .hero-screenshots {
+    min-height: 560px;
+  }
+
+  .hero-screenshots .device-main {
+    width: min(300px, 46vw);
+  }
+
+  .hero-screenshots .device-left,
+  .hero-screenshots .device-right {
+    width: min(270px, 40vw);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-screenshots {
+    min-height: 520px;
+    margin-top: 28px;
+  }
+
+  .hero-screenshots .device-main {
+    width: min(285px, 72vw);
+  }
+
+  .hero-screenshots .device-left {
+    left: 50%;
+    transform: translate(-78%, 10%) rotate(-5deg) scale(.74);
+  }
+
+  .hero-screenshots .device-right {
+    right: 50%;
+    transform: translate(78%, 11%) rotate(5deg) scale(.74);
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-screenshots {
+    min-height: 465px;
+  }
+
+  .hero-screenshots .device-main {
+    width: min(255px, 72vw);
+  }
+
+  .hero-screenshots .device-left,
+  .hero-screenshots .device-right {
+    display: none;
+  }
+
+  .hero-screenshots .device-frame {
+    border-width: 8px;
+    border-radius: 38px;
+  }
+
+  .hero-screenshots .device-notch {
+    height: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-screenshots .device {
+    transition: none;
+  }
+}
