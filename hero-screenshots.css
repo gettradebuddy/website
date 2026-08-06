@@ -26,15 +26,15 @@
 .hero-screenshots .device-left {
   z-index: 1;
   left: 0;
-  transform: translate(-4%, 7%) rotate(-5deg) scale(.88);
-  opacity: .94;
+  transform: translate(-12%, 7%) rotate(-5deg) scale(.92);
+  opacity: 1;
 }
 
 .hero-screenshots .device-right {
   z-index: 2;
   right: 0;
-  transform: translate(4%, 8%) rotate(5deg) scale(.88);
-  opacity: .94;
+  transform: translate(12%, 8%) rotate(5deg) scale(.92);
+  opacity: 1;
 }
 
 .hero-screenshots .device-frame {
