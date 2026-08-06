@@ -1,32 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Smooth scrolling
+  // Smooth scrolling for menu links
   document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", e => {
-      const targetId = link.getAttribute("href");
 
-      if (!targetId || targetId === "#") {
-        e.preventDefault();
-        return;
-      }
+    link.addEventListener("click", function(e) {
 
-      const target = document.querySelector(targetId);
+      const target = document.querySelector(this.getAttribute("href"));
 
       if (target) {
         e.preventDefault();
+
         target.scrollIntoView({
           behavior: "smooth",
           block: "start"
         });
       }
+
     });
+
   });
 
-  // Disable placeholder App Store buttons
+  // Disable Coming Soon buttons
   document.querySelectorAll(".store-badge.disabled").forEach(button => {
-    button.addEventListener("click", e => {
+
+    button.addEventListener("click", function(e) {
       e.preventDefault();
     });
+
   });
 
 });
