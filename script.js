@@ -1,32 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const targetId = link.getAttribute("href");
 
-  // Smooth scrolling for menu links
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
+      if (!targetId || targetId === "#") {
+        event.preventDefault();
+        return;
+      }
 
-    link.addEventListener("click", function(e) {
-
-      const target = document.querySelector(this.getAttribute("href"));
+      const target = document.querySelector(targetId);
 
       if (target) {
-        e.preventDefault();
+        event.preventDefault();
 
         target.scrollIntoView({
           behavior: "smooth",
           block: "start"
         });
       }
-
     });
-
   });
 
-  // Disable Coming Soon buttons
-  document.querySelectorAll(".store-badge.disabled").forEach(button => {
-
-    button.addEventListener("click", function(e) {
-      e.preventDefault();
+  document.querySelectorAll(".store-badge.disabled").forEach((badge) => {
+    badge.addEventListener("click", (event) => {
+      event.preventDefault();
     });
-
   });
-
 });
