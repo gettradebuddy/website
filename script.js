@@ -1,13 +1,32 @@
-document.querySelectorAll('a.disabled').forEach((link)=>{
-  link.addEventListener('click',(event)=>event.preventDefault());
-});
+document.addEventListener("DOMContentLoaded", () => {
 
-const deletionForm = document.querySelector('[data-delete-form]');
-if (deletionForm) {
-  deletionForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const message = document.querySelector('[data-delete-status]');
-    message.textContent = 'If an account exists for this email, we will send instructions to confirm your deletion request.';
-    deletionForm.reset();
+  // Smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", e => {
+      const targetId = link.getAttribute("href");
+
+      if (!targetId || targetId === "#") {
+        e.preventDefault();
+        return;
+      }
+
+      const target = document.querySelector(targetId);
+
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
   });
-}
+
+  // Disable placeholder App Store buttons
+  document.querySelectorAll(".store-badge.disabled").forEach(button => {
+    button.addEventListener("click", e => {
+      e.preventDefault();
+    });
+  });
+
+});
