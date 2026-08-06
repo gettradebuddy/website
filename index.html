@@ -1,634 +1,240 @@
-/* TradeBuddy Website V1 — final reference rebuild */
-
-:root {
-  --blue: #0863CE;
-  --blue-dark: #0752AC;
-  --blue-soft: #EAF4FF;
-  --ink: #10243E;
-  --muted: #61758B;
-  --line: #D8E4F1;
-  --bg: #FFFFFF;
-  --bg-muted: #F5F9FE;
-  --navy: #092D52;
-  --shadow: 0 22px 54px rgba(16, 36, 62, .15);
-  --radius: 20px;
-  --container: 1440px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  color: var(--ink);
-  background: var(--bg);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height: 1.55;
-}
-
-img {
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-}
-
-.container {
-  width: min(calc(100% - 48px), var(--container));
-  margin-inline: auto;
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255, 255, 255, .96);
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(12px);
-}
-
-.header-inner {
-  min-height: 74px;
-  display: flex;
-  align-items: center;
-  gap: 28px;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  margin-right: auto;
-}
-
-.brand img {
-  width: 228px;
-  height: auto;
-  display: block;
-}
-
-.desktop-nav {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-}
-
-.desktop-nav a {
-  text-decoration: none;
-  color: #31475F;
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.desktop-nav a:hover {
-  color: var(--blue);
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-weight: 800;
-  border-radius: 13px;
-}
-
-.button-small {
-  min-height: 46px;
-  padding: 0 21px;
-}
-
-.button-outline {
-  border: 2px solid var(--blue);
-  color: var(--blue);
-}
-
-.eyebrow {
-  display: block;
-  color: var(--blue);
-  text-transform: uppercase;
-  letter-spacing: .16em;
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.hero {
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 79% 38%, rgba(8, 99, 206, .14), transparent 37%),
-    linear-gradient(110deg, #FFFFFF 0%, #FBFDFF 55%, #EAF5FF 100%);
-  border-bottom: 1px solid var(--line);
-}
-
-.hero-grid {
-  min-height: 650px;
-  display: grid;
-  grid-template-columns: .92fr 1.08fr;
-  align-items: center;
-  gap: 44px;
-}
-
-.hero-copy {
-  max-width: 660px;
-}
-
-.hero h1 {
-  margin: 22px 0 22px;
-  max-width: 650px;
-  font-size: clamp(50px, 5.8vw, 82px);
-  line-height: .98;
-  letter-spacing: -.045em;
-}
-
-.hero-lead {
-  margin: 0;
-  max-width: 660px;
-  color: var(--muted);
-  font-size: 19px;
-  line-height: 1.72;
-}
-
-.store-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 31px;
-}
-
-.store-badge {
-  min-width: 184px;
-  min-height: 64px;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 9px 18px;
-  border-radius: 15px;
-  background: #071525;
-  color: #FFFFFF;
-  text-decoration: none;
-  box-shadow: 0 13px 28px rgba(7, 21, 37, .18);
-}
-
-.store-badge.disabled {
-  cursor: default;
-}
-
-.store-badge small,
-.store-badge strong {
-  display: block;
-}
-
-.store-badge small {
-  font-size: 10px;
-}
-
-.store-badge strong {
-  font-size: 20px;
-  line-height: 1.05;
-}
-
-.store-symbol {
-  font-size: 31px;
-  line-height: 1;
-}
-
-.store-symbol.play {
-  font-size: 24px;
-}
-
-.microcopy {
-  margin-top: 17px;
-  color: #7C8FA3;
-  font-size: 13px;
-}
-
-.phones {
-  position: relative;
-  min-height: 580px;
-}
-
-.phone {
-  position: absolute;
-  top: 50%;
-  width: 305px;
-  aspect-ratio: 9 / 19.5;
-}
-
-.phone-main {
-  z-index: 3;
-  left: 50%;
-  width: 342px;
-  transform: translate(-50%, -50%);
-}
-
-.phone-left {
-  z-index: 1;
-  left: 12%;
-  transform: translateY(-45%) rotate(-6deg);
-}
-
-.phone-right {
-  z-index: 2;
-  right: 8%;
-  transform: translateY(-45%) rotate(6deg);
-}
-
-.phone-frame {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border: 10px solid #0A1625;
-  border-radius: 43px;
-  background: #FFFFFF;
-  box-shadow: var(--shadow);
-}
-
-.phone-notch {
-  position: absolute;
-  z-index: 5;
-  top: 0;
-  left: 50%;
-  width: 35%;
-  height: 23px;
-  transform: translateX(-50%);
-  border-radius: 0 0 16px 16px;
-  background: #0A1625;
-}
-
-.phone img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.content-board {
-  padding: 0;
-  background: var(--bg-muted);
-}
-
-.board-grid {
-  width: min(100%, 1600px);
-  display: grid;
-  grid-template-columns: 1.15fr .9fr .95fr 1.35fr;
-  align-items: stretch;
-  padding-inline: 0;
-}
-
-.board-panel {
-  padding: 38px 30px 42px;
-  border-right: 1px solid var(--line);
-  background: #FFFFFF;
-}
-
-.board-panel:last-child {
-  border-right: 0;
-}
-
-.step-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 13px;
-  margin-top: 22px;
-}
-
-.step-card {
-  min-height: 286px;
-  padding: 20px 17px;
-  border: 1px solid var(--line);
-  border-radius: 15px;
-}
-
-.number {
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  border-radius: 11px;
-  color: #FFFFFF;
-  background: var(--blue);
-  font-weight: 900;
-}
-
-.line-icon {
-  margin-top: 22px;
-  color: var(--blue);
-  font-size: 30px;
-}
-
-.step-card h2 {
-  margin: 17px 0 10px;
-  font-size: 16px;
-  line-height: 1.3;
-}
-
-.step-card p,
-.trust-panel p,
-.story-copy p {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.trust-panel h2,
-.faq-panel h2,
-.story-copy h2 {
-  margin: 17px 0 13px;
-  font-size: 27px;
-  line-height: 1.12;
-}
-
-.trust-list {
-  margin: 25px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.trust-list li {
-  position: relative;
-  margin: 0 0 17px;
-  padding-left: 30px;
-  font-weight: 800;
-  font-size: 14px;
-}
-
-.trust-list li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  top: -1px;
-  width: 20px;
-  height: 20px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  color: #FFFFFF;
-  background: var(--blue);
-  font-size: 12px;
-}
-
-.faq-list {
-  margin-top: 20px;
-}
-
-.faq-list details {
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #FFFFFF;
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-
-.faq-list summary {
-  cursor: pointer;
-  padding: 14px 16px;
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.faq-list p {
-  margin: 0;
-  padding: 0 16px 16px;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-.story-panel {
-  display: grid;
-  grid-template-columns: .86fr 1.14fr;
-  gap: 22px;
-  background: #F8FBFF;
-}
-
-.story-copy blockquote {
-  margin: 24px 0 0;
-  padding: 18px;
-  border-left: 4px solid var(--blue);
-  border-radius: 0 14px 14px 0;
-  background: #FFFFFF;
-  font-size: 13px;
-  font-weight: 900;
-  line-height: 1.55;
-}
-
-.story-visual {
-  align-self: center;
-}
-
-.story-visual img {
-  width: 100%;
-  border-radius: 18px;
-  box-shadow: 0 17px 42px rgba(16, 36, 62, .13);
-}
-
-.site-footer {
-  padding: 42px 0 20px;
-  color: #D7E6F5;
-  background: linear-gradient(135deg, #082B4E, #061E38);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.8fr repeat(3, 1fr);
-  gap: 40px;
-}
-
-.footer-brand img {
-  width: 182px;
-  filter: brightness(0) invert(1);
-}
-
-.footer-brand p {
-  max-width: 290px;
-  margin: 10px 0 0;
-  font-size: 13px;
-}
-
-.site-footer h3 {
-  margin: 0 0 14px;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  font-size: 12px;
-}
-
-.site-footer a {
-  display: block;
-  margin: 9px 0;
-  color: #D7E6F5;
-  text-decoration: none;
-  font-size: 13px;
-}
-
-.site-footer a:hover {
-  color: #FFFFFF;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  margin-top: 34px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,.15);
-  font-size: 12px;
-}
-
-@media (max-width: 1180px) {
-  .board-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .board-panel {
-    border-bottom: 1px solid var(--line);
-  }
-
-  .story-panel {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 960px) {
-  .desktop-nav {
-    display: none;
-  }
-
-  .brand img {
-    width: 200px;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    padding-top: 74px;
-  }
-
-  .hero-copy {
-    text-align: center;
-    margin-inline: auto;
-  }
-
-  .store-row {
-    justify-content: center;
-  }
-
-  .phones {
-    min-height: 540px;
-  }
-
-  .phone-left {
-    left: 16%;
-  }
-
-  .phone-right {
-    right: 12%;
-  }
-}
-
-@media (max-width: 760px) {
-  .container {
-    width: min(calc(100% - 30px), var(--container));
-  }
-
-  .header-inner {
-    min-height: 66px;
-  }
-
-  .brand img {
-    width: 172px;
-  }
-
-  .button-small {
-    min-height: 42px;
-    padding: 0 15px;
-    font-size: 13px;
-  }
-
-  .hero-grid {
-    min-height: auto;
-    padding-top: 58px;
-  }
-
-  .hero h1 {
-    font-size: clamp(42px, 13vw, 58px);
-  }
-
-  .hero-lead {
-    font-size: 17px;
-  }
-
-  .phones {
-    min-height: 480px;
-  }
-
-  .phone-main {
-    width: min(280px, 72vw);
-  }
-
-  .phone-left,
-  .phone-right {
-    display: none;
-  }
-
-  .board-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .board-panel,
-  .story-panel {
-    grid-column: auto;
-    border-right: 0;
-  }
-
-  .step-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .step-card {
-    min-height: 0;
-  }
-
-  .story-panel {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .footer-brand {
-    grid-column: span 2;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 460px) {
-  .brand img {
-    width: 145px;
-  }
-
-  .header-inner {
-    gap: 12px;
-  }
-
-  .store-badge {
-    width: 100%;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-brand {
-    grid-column: auto;
-  }
-}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>TradeBuddy | Find Your Trading Partner</title>
+  <meta
+    name="description"
+    content="TradeBuddy helps traders discover compatible trading partners, connect, message, share charts, and build a trusted trading network."
+  />
+  <meta property="og:title" content="TradeBuddy | Find Your Trading Partner" />
+  <meta
+    property="og:description"
+    content="Find traders who trade like you. Learn together, stay accountable, and build a trusted trading network."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gettradebuddy.app/" />
+  <meta name="theme-color" content="#0863CE" />
+
+  <link rel="icon" href="assets/tradebuddy-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/tradebuddy-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="TradeBuddy home">
+        <img src="assets/tradebuddy-wordmark.png" alt="TradeBuddy" />
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#trust">Trust &amp; Safety</a>
+        <a href="#faq">FAQ</a>
+        <a href="#story">About</a>
+        <a href="contact.html">Support</a>
+      </nav>
+
+      <a class="button button-outline button-small" href="#download">Get the app</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Find Your Trading Partner</span>
+
+          <h1>Find traders who trade like you.</h1>
+
+          <p class="hero-lead">
+            Trading can be lonely. TradeBuddy helps you discover traders who share
+            your markets, trading style, timeframe, and approach—so you can learn
+            together, stay accountable, and build a trusted trading network.
+          </p>
+
+          <div class="store-row" id="download">
+            <a class="store-badge disabled" href="#" aria-disabled="true">
+              <span class="store-symbol"></span>
+              <span>
+                <small>Coming soon on the</small>
+                <strong>App Store</strong>
+              </span>
+            </a>
+
+            <a class="store-badge disabled" href="#" aria-disabled="true">
+              <span class="store-symbol play">▶</span>
+              <span>
+                <small>Coming soon on</small>
+                <strong>Google Play</strong>
+              </span>
+            </a>
+          </div>
+
+          <p class="microcopy">India-first launch. Global access planned.</p>
+        </div>
+
+        <div class="phones" aria-label="TradeBuddy app screens">
+          <div class="phone phone-left" aria-hidden="true">
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <img src="assets/profile.png" alt="" />
+            </div>
+          </div>
+
+          <div class="phone phone-main">
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <img
+                src="assets/discover.png"
+                alt="TradeBuddy Discover screen showing compatible traders and match percentages"
+              />
+            </div>
+          </div>
+
+          <div class="phone phone-right" aria-hidden="true">
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <img src="assets/network.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="how-it-works">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Three Simple Steps</span>
+          <h2>How TradeBuddy works</h2>
+        </div>
+
+        <div class="steps-list">
+          <article class="step-row">
+            <span class="step-number">1</span>
+            <div>
+              <h3>Create your trading profile</h3>
+              <p>Tell TradeBuddy how you trade—your markets, trading style, timeframes, and overall approach.</p>
+            </div>
+          </article>
+
+          <article class="step-row">
+            <span class="step-number">2</span>
+            <div>
+              <h3>Discover compatible traders</h3>
+              <p>See traders whose preferences align with yours, along with a simple compatibility indicator.</p>
+            </div>
+          </article>
+
+          <article class="step-row">
+            <span class="step-number">3</span>
+            <div>
+              <h3>Connect and communicate</h3>
+              <p>Chat privately, share charts, ask questions, and stay accountable together.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container split-grid">
+        <section class="trust-card" id="trust">
+          <span class="eyebrow light">Trust &amp; Safety</span>
+          <h2>You stay in control.</h2>
+          <p>TradeBuddy gives members straightforward tools to communicate privately, report content, permanently disconnect from another trader, and delete their account.</p>
+          <ul class="trust-list">
+            <li>Private messaging</li>
+            <li>Report users and content</li>
+            <li>Permanent disconnect controls</li>
+            <li>Secure account deletion</li>
+          </ul>
+        </section>
+
+        <section class="faq-card" id="faq">
+          <span class="eyebrow">FAQ</span>
+          <h2>Simple answers.</h2>
+          <div class="faq-list">
+            <details open>
+              <summary>Is TradeBuddy a broker or signal service?</summary>
+              <p>No. TradeBuddy is a social networking platform that helps traders discover compatible trading partners, connect, message, share chart images, and build trusted trading relationships. TradeBuddy does not provide brokerage services, investment advice, trading signals, copy trading, or financial recommendations.</p>
+            </details>
+            <details>
+              <summary>How are traders recommended?</summary>
+              <p>TradeBuddy uses the profile information and trading preferences you choose to provide to recommend potentially relevant traders. Recommendations do not guarantee compatibility or results.</p>
+            </details>
+            <details>
+              <summary>Is TradeBuddy free?</summary>
+              <p>TradeBuddy offers a free membership. Premium features may be introduced in future updates.</p>
+            </details>
+            <details>
+              <summary>Can I delete my account?</summary>
+              <p>Yes. You can permanently delete your account from Settings or use the public account-deletion page if you cannot access the app.</p>
+            </details>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section story-section" id="story">
+      <div class="container story-wrap">
+        <div class="story-heading">
+          <span class="eyebrow">Our Story</span>
+          <h2>Why TradeBuddy Exists</h2>
+          <p>Many traders join courses, communities, and social media searching for answers—but still feel alone because everyone trades differently.</p>
+          <p>TradeBuddy helps traders connect with people who genuinely trade like they do, so they can exchange ideas, ask questions, stay accountable, and grow together.</p>
+        </div>
+
+        <div class="mission-box">
+          <h3>No single trader has all the answers.</h3>
+          <p>Better trading comes from <strong>trusted connections</strong>, <strong>shared experience</strong>, and <strong>collective knowledge.</strong></p>
+        </div>
+
+        <img class="story-image" src="assets/tradebuddy-story-final.png" alt="TradeBuddy helping traders connect, share charts, ask questions, and grow together." />
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/tradebuddy-wordmark-white.png" alt="TradeBuddy" />
+        <p>Find traders who trade like you.</p>
+        <p>Build connections. Share experience. Grow together.</p>
+      </div>
+
+      <div>
+        <h3>Product</h3>
+        <a href="#how-it-works">How it works</a>
+        <a href="#trust">Trust &amp; Safety</a>
+        <a href="#faq">FAQ</a>
+        <a href="#story">About</a>
+      </div>
+
+      <div>
+        <h3>Support</h3>
+        <a href="help.html">Help Center</a>
+        <a href="contact.html">Contact Support</a>
+        <a href="delete-account.html">Delete Account</a>
+      </div>
+
+      <div>
+        <h3>Legal</h3>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="refund.html">Refund &amp; Cancellation</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2026 TradeBuddy. All rights reserved.</span>
+      <span>TradeBuddy is not a broker, investment adviser, or signal service.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
